@@ -1,0 +1,41 @@
+#hero{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80vh;
+    /* background-color: blue; */
+}
+
+.text-content{
+    margin-left: 4vw;
+    width: 46vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+#tagline{
+    font-size: 9vh;
+    width: 70%;
+    text-align:start;
+    font-weight: 800;
+}
+
+.hero-books{
+    margin-right: 3vw;
+    width: 46vw;
+    /* background-color: aquamarine; */
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-book img{
+    width: 10vw ;
+    margin: 3vh;
+    cursor: pointer;
+}

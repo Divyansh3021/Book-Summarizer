@@ -1,4 +1,5 @@
 import index
+import PyPDF2, re
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -76,6 +77,34 @@ def upload_file():
     if request.method == "POST":
         f = request.files['file']
         return "file uploaded successfully"
+
+@app.route("/read")
+def read():
+    pdfFileObject = open("D:\Books\Atomic Habits An Easy  Proven Way to Build Good Habits  Break Bad Ones (James Clear).pdf", 'rb')
+    # creating a pdf reader object
+    pdfReader = PyPDF2.PdfReader(pdfFileObject)
+    text=""
+    summary=' '
+    pattern = r'^[A-Z\s]+$'
+    headings = []
+    #Storing the pages in a list
+    for i in range(8,18):
+        # creating a page object
+        pageObj = pdfReader.pages[i].extract_text()
+        pageObj= pageObj.replace('\t\r',' ')
+        pageObj= pageObj.replace('\xa0',' ')
+
+        sentences = pageObj.split(". ")
+
+        for sentence in sentences:
+            sentence = sentence.strip()
+
+            #founding a match
+            summary += sentence
+            if re.match(pattern, sentence):
+                headings.append(sentence)
+
+    return headings , summary
 
 if __name__ == "__main__":
     app.run()

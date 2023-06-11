@@ -1,8 +1,9 @@
 import torch
-from transformers import AutoTokenizer, AutoModelWithLMHead
+from transformers import AutoTokenizer, AutoModelWithLMHead, AutoModelForSeq2SeqLM
 
 tokenizer = AutoTokenizer.from_pretrained('t5-small')
 model = AutoModelWithLMHead.from_pretrained('t5-small', return_dict = True)
+# model = AutoModelForSeq2SeqLM.from_pretrained("sgugger/my-awesome-model")
 # model = AutoModelForCausalLM.from_pretrained('t5-small', return_dict = True)
 
 
