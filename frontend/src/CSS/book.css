@@ -1,0 +1,32 @@
+.Book{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 92vh;
+    background-color: beige;
+
+}
+
+.book-photo{
+    width: 50%;
+    max-height: 92vh;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-info{
+    display: flex;
+    flex-direction:column;
+    width: 50%;
+    max-height: 92vh;
+}
+
+.book-title, .book-author{
+    font-size: 7vh;
+    font-weight: 700;
+    text-align: start;
+    padding-left: 5vw;
+}
+
