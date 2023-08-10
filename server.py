@@ -1,12 +1,11 @@
 import index
 import PyPDF2, re
+import streamlit as st
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
-def upload():
-    return render_template("home.html")
+
 
 @app.route("/get_file", methods = ['GET','POST'])
 def upload_file():
@@ -29,22 +28,26 @@ def read():
         for line in lines:
             string += line
 
-    sub_string = []
-    empty_string = ""
+
+    string = string.split(".")
+
+    sub_string = ""
+
+    string_len = len(string)
+
+    print("Length of string is : ",string_len)
+
+    for batch in range(0,(string_len//10)+2):
+        for line_index in range(5):
+            print(line_index + 5*batch)
 
 
-    string = string.split()
-    print(string)
-
-
-
-
-    # model_obj = index.summarizer(string)
+    # model_obj = index.summarizer(sub_string)
     # summary += model_obj.summarize(min_length=150)        
 
-    return summary
+    return sub_string
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

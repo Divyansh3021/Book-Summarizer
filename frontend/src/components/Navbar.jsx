@@ -1,13 +1,30 @@
-import React from 'react'
-import "../CSS/navbar.css"
+import React, { useState } from 'react';
+import "../assets/navbar.css" // Import your CSS file
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleNavbarMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div id='navbar'>
-        <div id="logo"><img src={require("../assets/logo.png")} alt="" /></div>
-        <div id="contract"><img src={require("../assets/menu-collapse.png")} alt="" /></div>
-    </div>
-  )
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <img src="logo.png" alt="Logo" />
+      </div>
+      <div className={`navbar-menu ${menuOpen ? 'open' : ''}`}>
+        <a href="#">Home</a>
+        <a href="#">Bookmarks</a>
+        <a href="#">Blog</a>
+      </div>
+      <div className="navbar-menu-toggle" onClick={toggleNavbarMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
