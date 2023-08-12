@@ -4,13 +4,13 @@ import PyPDF2
 import index
 
 # Set up the Streamlit app
-st.title("Book Viewer")
+st.title("Document Summarizer")
 
 # Upload PDF book file
-uploaded_file = st.file_uploader("Upload a book file (pdf format)", type=["pdf"])
+uploaded_file = st.file_uploader("Upload your file (pdf format)", type=["pdf"])
 
 # Page navigation
-current_page = st.session_state.get("current_page", 0)
+current_page = st.session_state.get("current_page", 1)
 st.session_state.current_page = current_page
 
 summarized_text = " "
