@@ -10,7 +10,7 @@ st.title("Document Summarizer")
 uploaded_file = st.file_uploader("Upload your file (pdf format)", type=["pdf"])
 
 # Page navigation
-current_page = st.session_state.get("current_page", 1)
+current_page = st.session_state.get("current_page", 0)
 st.session_state.current_page = current_page
 
 summarized_text = " "
