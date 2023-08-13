@@ -27,9 +27,11 @@ This will launch the Streamlit app in your default web browser.
 
 ## Technologies Used
 1. Python
-2. Streamlit
-3. PyPDF2 (for PDF text extraction)
-4. Your Summarization Library (imported as "index")
+2. PyTorch
+3. Transformers
+4. Streamlit
+5. PyPDF2 (for PDF text extraction)
+6. Your Summarization Library (imported as "index")
 
 ## Contributing
 Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to open an issue or a pull request.
