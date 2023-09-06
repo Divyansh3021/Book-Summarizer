@@ -9,9 +9,9 @@ model = AutoModelWithLMHead.from_pretrained('t5-small', return_dict = True)
 
 class summarizer:
     
-    def summarize(self,text, max_length = 200):
+    def summarize(self,text, max_length = 400):
         inputs = tokenizer.encode("summarize: "+text, return_tensors = 'pt', max_length = 1024, truncation = True)
-        summarize_ids = model.generate(inputs, max_length = max_length, min_length = 0, length_penalty =3, num_beams = 2)
+        summarize_ids = model.generate(inputs, max_length = max_length, min_length = 20, length_penalty =3, num_beams = 2)
         summary = tokenizer.decode(summarize_ids[0])
         return summary
 
